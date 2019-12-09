@@ -39,7 +39,11 @@ public class ChoiceActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ChoiceActivity.this,MainActivity.class));
+                if(Global.isDev){
+                    startActivity(new Intent(ChoiceActivity.this,MainActivity.class));
+                }else{
+                    Toast.makeText(ChoiceActivity.this, "Global.isDev设置成true进入", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         Button button1 = new Button(this);
@@ -49,7 +53,11 @@ public class ChoiceActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ChoiceActivity.this,MoudleAActivity.class));
+                if(!Global.isDev){
+                    startActivity(new Intent(ChoiceActivity.this,MoudleAActivity.class));
+                }else{
+                    Toast.makeText(ChoiceActivity.this, "Global.isDev设置成false进入", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         Button button3 = new Button(this);
@@ -59,7 +67,11 @@ public class ChoiceActivity extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ChoiceActivity.this,MoudleBActivity.class));
+                if(!Global.isDev){
+                    startActivity(new Intent(ChoiceActivity.this,MoudleBActivity.class));
+                }else{
+                    Toast.makeText(ChoiceActivity.this, "Global.isDev设置成false进入", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         linearLayout.addView(button);
@@ -93,7 +105,7 @@ public class ChoiceActivity extends AppCompatActivity {
     }
 
     private void loadSubMoudle(){//预加载moudle a页面
-        //ScriptLoadBridge.loadScriptFromAsset(this,rim.getCurrentReactContext().getCatalystInstance(),"adiff.bundle",false);
+        ScriptLoadBridge.loadScriptFromAsset(this,rim.getCurrentReactContext().getCatalystInstance(),"adiff.bundle",false);
     }
 
     private void unLoadReactContext(){
