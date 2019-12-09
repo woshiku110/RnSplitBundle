@@ -20,11 +20,4 @@ mv common.bundle ${pathResource}
 mv adiff.bundle ${pathResource}
 mv bdiff.bundle ${pathResource}
 echo "通包生成完成，业务包生成完成。对比服务完成，差异包完成,目录移动指定位置。"
-#cd /Users/woshiku/Desktop/gkt/git/gktapp/android
-#./gradlew assembleDebug
-#cd /Users/woshiku
-#adb uninstall com.gkt
-#adb install /Users/woshiku/Desktop/gkt/git/gktapp/android/app/build/outputs/apk/dev/debug/app-dev-debug.apk
-#adb shell am start -n com.gkt/com.gktapp.MainActivity
-#cd /Users/woshiku/Desktop/gkt/git/gktapp/
-#react-native run-android  --variant=devDebug
+
